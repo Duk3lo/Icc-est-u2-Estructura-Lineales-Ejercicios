@@ -6,8 +6,8 @@
 
 
 ##  Nombre de la práctica - Fecha
-- Práctica: [Nombre exacto de la práctica]
-- Fecha: [YYYY-MM-DD]
+- Práctica: Estructura no lineales
+- Fecha: 05/01/2026
 
 ## Descripción
 Descripción de que es lo que hizo o alcanzo desarrollar en la práctica.
