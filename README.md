@@ -1,18 +1,22 @@
-## Getting Started
+# Práctica: Estructuras No Lineales - 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Autor
+- Nombre: Joshue Avecillas
+- Carrera/Curso: Estructura de Datos
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+##  Nombre de la práctica - Fecha
+- Práctica: [Nombre exacto de la práctica]
+- Fecha: [YYYY-MM-DD]
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Descripción
+Descripción de que es lo que hizo o alcanzo desarrollar en la práctica.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Evidencias
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### Captura 1 – Ejecución del programa
+![Ejecución en consola](assets/console.png)
 
-## Dependency Management
+### Captura 2 – Tamaño del árbol
+![Resultado del método size](assets/size.png)
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
