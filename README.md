@@ -20,3 +20,6 @@ Descripción de que es lo que hizo o alcanzo desarrollar en la práctica.
 ### Captura 2 – Tamaño del árbol
 ![Resultado del método size](assets/size.png)
 
+### Captura 3 – Tamaño del árbol
+![Resultado de la edad](assets/searchByAge.png)
+
