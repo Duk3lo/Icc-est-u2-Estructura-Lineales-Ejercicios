@@ -7,7 +7,7 @@
 
 ##  Nombre de la práctica - Fecha
 - Práctica: Estructura no lineales
-- Fecha: 05/01/2026
+- Fecha: 08/01/2026
 
 ## Descripción
 Descripción de que es lo que hizo o alcanzo desarrollar en la práctica.
@@ -20,9 +20,15 @@ Descripción de que es lo que hizo o alcanzo desarrollar en la práctica.
 ### Captura 2 – Tamaño del árbol
 ![Resultado del método size](assets/size.png)
 
-### Captura 4 – Tamaño del árbol
+### Captura 3 – Busqueda codigo
 ![Codigo de busqueda](assets/codigoSearch.png)
 
-### Captura 3 – Tamaño del árbol
+### Captura 4 – Busqueda por edad
 ![Resultado de la edad](assets/searchByAge.png)
+
+### Captura 5 – Mapeo
+![Codigo de busqueda](assets/graphs.png)
+
+### Captura 6 – Salida del Mapeo
+![Resultado de la edad](assets/printGraphs.png)
 
