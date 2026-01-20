@@ -3,12 +3,12 @@ import java.util.Map;
 import java.util.Set;
 
 import models.Person;
-import models.Maps;
 import models.Maquina;
 import controllers.MaquinasController;
 
 import structures.node.Node;
 import structures.graphts.Grapht;
+import structures.maps.Maps;
 import structures.trees.IntTree;
 import structures.trees.Tree;
 import structures.sets.Sets;
@@ -16,7 +16,6 @@ import structures.sets.Sets;
 public class App {
 
     public static void main(String[] args) {
-
         runGraph();
         printTree();
         printIntTree();
