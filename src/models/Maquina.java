@@ -22,7 +22,7 @@ public class Maquina implements Comparable<Maquina> {
         return Integer.parseInt(subred);
     }
 
-    //private int calcularRiesgo() {return 0;}
+    // private int calcularRiesgo() {return 0;}
 
     public String getNombre() {
         return nombre;
@@ -58,5 +58,16 @@ public class Maquina implements Comparable<Maquina> {
             return Integer.compare(this.subred, o.subred);
         }
         return this.nombre.compareTo(o.nombre);
+    }
+
+    @Override
+    public String toString() {
+        return "Maquina{" +
+                "nombre='" + nombre + '\'' +
+                ", ip='" + ip + '\'' +
+                ", subred=" + subred +
+                ", riesgo=" + riesgo +
+                ", codigos=" + codigos +
+                '}';
     }
 }

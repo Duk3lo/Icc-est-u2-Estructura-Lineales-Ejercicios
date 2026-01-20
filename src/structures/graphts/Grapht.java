@@ -2,8 +2,12 @@ package structures.graphts;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 import structures.node.Node;
 
@@ -46,14 +50,14 @@ public class Grapht<T> {
     }
 
     public void bfs(Node<T> start) {
-        List<Node<T>> visited = new ArrayList<>();
-        List<Node<T>> queue = new ArrayList<>();
+        Set<Node<T>> visited = new HashSet<>();
+        Queue<Node<T>> queue = new LinkedList<>();
 
         visited.add(start);
         queue.add(start);
 
         while (!queue.isEmpty()) {
-            Node<T> current = queue.remove(0);
+            Node<T> current = queue.poll();
             System.out.print(current.getValue() + " ");
 
             for (Node<T> neighbor : getNeighbors(current)) {
@@ -79,5 +83,11 @@ public class Grapht<T> {
                 dfsRecursive(neighbor, visited);
             }
         }
+    }
+
+    public void addEdgeDirected(Node<T> from, Node<T> to) {
+        addNode(from);
+        addNode(to);
+        mapa.get(from).add(to);
     }
 }

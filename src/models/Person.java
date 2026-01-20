@@ -36,7 +36,7 @@ public class Person implements Comparable<Person> {
 
     
     public int getCedula() {
-        return cedula;
+            return cedula;
     }
 
     public void setCedula(int cedula) {

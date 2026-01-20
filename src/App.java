@@ -22,6 +22,7 @@ public class App {
         runMaps();
         runSets();
         runMaquinas();
+        runGraphts();
     }
 
     // ===================== GRAPH =====================
@@ -163,4 +164,34 @@ public class App {
             System.out.println(m);
         }
     }
+
+    public static void runGraphts() {
+    Grapht<Person> grapht = new Grapht<>();
+
+    Person pc23 = new Person("Carlos", 23);
+    Person pL18 = new Person("Luis", 18);
+    Person pA28 = new Person("Ana", 28);
+    Person pA30 = new Person("Ana", 30);
+    Person pJ25 = new Person("Jose", 25);
+    Person pAn20 = new Person("Andres", 20);
+
+    Node<Person> nCarlos = new Node<>(pc23);
+    Node<Person> nLuis = new Node<>(pL18);
+    Node<Person> nAna28 = new Node<>(pA28);
+    Node<Person> nAna30 = new Node<>(pA30);
+    Node<Person> nJose = new Node<>(pJ25);
+    Node<Person> nAndres = new Node<>(pAn20);
+
+    grapht.addEdge(nCarlos, nLuis);
+    grapht.addEdge(nCarlos, nAna28);
+    grapht.addEdge(nLuis, nJose);
+    grapht.addEdge(nAna28, nAndres);
+    grapht.addEdge(nJose, nAna30);
+    System.out.println("=== GRAFO ===");
+    grapht.printGraphts();
+    System.out.println("\n=== BFS desde Carlos ===");
+    grapht.bfs(nCarlos);
+    System.out.println("\n\n=== DFS desde Carlos ===");
+    grapht.dfs(nCarlos);
+}
 }
