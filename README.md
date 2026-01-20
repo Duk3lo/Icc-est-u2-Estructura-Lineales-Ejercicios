@@ -32,3 +32,5 @@ Descripción de que es lo que hizo o alcanzo desarrollar en la práctica.
 ### Captura 6 – Salida del Mapeo
 ![Resultado de la edad](assets/printGraphs.png)
 
+### Captura 7 – Salida del Mapeo
+![Resultado de Maps](assets/maps.png)

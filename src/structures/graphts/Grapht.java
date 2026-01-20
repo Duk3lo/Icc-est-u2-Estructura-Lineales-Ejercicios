@@ -44,5 +44,25 @@ public class Grapht<T>{
             System.out.println();
         }
     }
-    
+
+    public void bfs(Node<T> start){
+        List<Node<T>> visited = new ArrayList<>();
+        List<Node<T>> queue = new ArrayList<>();
+
+        visited.add(start);
+        queue.add(start);
+
+        while(!queue.isEmpty()){
+            Node<T> current = queue.remove(0);
+            System.out.print(current.getValue() + " ");
+
+            for(Node<T> neighbor : getNeighbors(current)){
+                if(!visited.contains(neighbor)){
+                    visited.add(neighbor);
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+    }
 }
