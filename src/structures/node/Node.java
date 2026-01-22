@@ -27,6 +27,11 @@ public class Node<T> {
         return "N [" + value + "]";
     }
 
+    public List<Node<T>> getNeighbors() {
+    return conocidos;
+}
+    
+
     /// SALIDA
     /// N[A] -> N[B] N[C]
     /// N[B] -> N[A] N[D]

@@ -13,11 +13,6 @@ import structures.node.Node;
 
 public class Grapht<T> {
 
-    // 1 forma
-    // TRABAJA CON LISTADO DE ADYACENCIA
-    // List<Node<T>> nodes;
-
-    // 2Da forma
     private Map<Node<T>, List<Node<T>>> mapa;
 
     public Grapht() {
@@ -33,6 +28,11 @@ public class Grapht<T> {
         addNode(n2);
         mapa.get(n1).add(n2);
         mapa.get(n2).add(n1);
+    }
+
+    // ✅ MÉTODO AGREGADO (LO QUE TE FALTABA)
+    public void addConocido(Node<T> a, Node<T> b) {
+        addEdge(a, b);
     }
 
     public List<Node<T>> getNeighbors(Node<T> node) {

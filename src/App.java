@@ -8,6 +8,10 @@ import controllers.MaquinasController;
 
 import structures.node.Node;
 import structures.graphts.Grapht;
+import structures.graphts.PathFinder;
+import structures.graphts.PathResult;
+import structures.graphts.implementations.BFSPathFinder;
+import structures.graphts.implementations.DFSPathFinder;
 import structures.maps.Maps;
 import structures.trees.IntTree;
 import structures.trees.Tree;
@@ -16,13 +20,16 @@ import structures.sets.Sets;
 public class App {
 
     public static void main(String[] args) {
-        runGraph();
-        printTree();
-        printIntTree();
-        runMaps();
-        runSets();
-        runMaquinas();
-        runGraphts();
+        /*
+         * runGraph();
+         * printTree();
+         * printIntTree();
+         * runMaps();
+         * runSets();
+         * runMaquinas();
+         * runGraphts();
+         */
+        runGraphRecorridos();
     }
 
     // ===================== GRAPH =====================
@@ -166,32 +173,92 @@ public class App {
     }
 
     public static void runGraphts() {
-    Grapht<Person> grapht = new Grapht<>();
+        Grapht<Person> grapht = new Grapht<>();
 
-    Person pc23 = new Person("Carlos", 23);
-    Person pL18 = new Person("Luis", 18);
-    Person pA28 = new Person("Ana", 28);
-    Person pA30 = new Person("Ana", 30);
-    Person pJ25 = new Person("Jose", 25);
-    Person pAn20 = new Person("Andres", 20);
+        Person pc23 = new Person("Carlos", 23);
+        Person pL18 = new Person("Luis", 18);
+        Person pA28 = new Person("Ana", 28);
+        Person pA30 = new Person("Ana", 30);
+        Person pJ25 = new Person("Jose", 25);
+        Person pAn20 = new Person("Andres", 20);
 
-    Node<Person> nCarlos = new Node<>(pc23);
-    Node<Person> nLuis = new Node<>(pL18);
-    Node<Person> nAna28 = new Node<>(pA28);
-    Node<Person> nAna30 = new Node<>(pA30);
-    Node<Person> nJose = new Node<>(pJ25);
-    Node<Person> nAndres = new Node<>(pAn20);
+        Node<Person> nCarlos = new Node<>(pc23);
+        Node<Person> nLuis = new Node<>(pL18);
+        Node<Person> nAna28 = new Node<>(pA28);
+        Node<Person> nAna30 = new Node<>(pA30);
+        Node<Person> nJose = new Node<>(pJ25);
+        Node<Person> nAndres = new Node<>(pAn20);
 
-    grapht.addEdge(nCarlos, nLuis);
-    grapht.addEdge(nCarlos, nAna28);
-    grapht.addEdge(nLuis, nJose);
-    grapht.addEdge(nAna28, nAndres);
-    grapht.addEdge(nJose, nAna30);
-    System.out.println("=== GRAFO ===");
-    grapht.printGraphts();
-    System.out.println("\n=== BFS desde Carlos ===");
-    grapht.bfs(nCarlos);
-    System.out.println("\n\n=== DFS desde Carlos ===");
-    grapht.dfs(nCarlos);
-}
+        grapht.addEdge(nCarlos, nLuis);
+        grapht.addEdge(nCarlos, nAna28);
+        grapht.addEdge(nLuis, nJose);
+        grapht.addEdge(nAna28, nAndres);
+        grapht.addEdge(nJose, nAna30);
+        System.out.println("=== GRAFO ===");
+        grapht.printGraphts();
+        System.out.println("\n=== BFS desde Carlos ===");
+        grapht.bfs(nCarlos);
+        System.out.println("\n\n=== DFS desde Carlos ===");
+        grapht.dfs(nCarlos);
+    }
+
+    private static void runGraphRecorridos() {
+        System.out.println("\n=== RECORRIDOS EN GRAFOS ===");
+
+        Grapht<Person> grafo = new Grapht<>();
+
+        // ===== PERSONAS =====
+        Person pC23 = new Person("Carlos", 23);
+        Person pL18 = new Person("Luis", 18);
+        Person pA23 = new Person("Andres", 23);
+        Person pA30 = new Person("Ana", 30);
+        Person pJ25 = new Person("Juan", 25);
+        Person pAn20 = new Person("Ana", 20);
+        Person pM10 = new Person("Mateo", 10);
+        Person pJ10 = new Person("Julio", 10);
+
+        // ===== NODOS (TODOS EN ORDEN) =====
+        Node<Person> nC23 = new Node<>(pC23);
+        Node<Person> nL18 = new Node<>(pL18);
+        Node<Person> nA23 = new Node<>(pA23);
+        Node<Person> nA30 = new Node<>(pA30);
+        Node<Person> nJ25 = new Node<>(pJ25);
+        Node<Person> nAn20 = new Node<>(pAn20);
+        Node<Person> nM10 = new Node<>(pM10);
+        Node<Person> nJ10 = new Node<>(pJ10);
+
+        // ===== CONEXIONES =====
+        grafo.addEdge(nC23, nA30);
+        grafo.addConocido(nC23, nL18);
+        grafo.addConocido(nC23, nA23);
+        grafo.addConocido(nL18, nJ25);
+        grafo.addEdge(nL18, nA23);
+        grafo.addConocido(nAn20, nA30);
+        grafo.addEdge(nA30, nM10);
+        grafo.addEdge(nM10, nJ10);
+
+        // ================= BFS =================
+        PathFinder<Person> bfsFinder = new BFSPathFinder<>();
+        PathResult<Person> bfsResult = bfsFinder.findPath(grafo, nAn20, nJ25);
+
+        System.out.println("\nOrden BFS:");
+        bfsResult.getVisitados()
+                .forEach(node -> System.out.print(node + " "));
+
+        System.out.println("\nRuta Encontrada BFS:");
+        bfsResult.getPath()
+                .forEach(node -> System.out.print(node + " "));
+
+        // ================= DFS =================
+        PathFinder<Person> dfsFinder = new DFSPathFinder<>();
+        PathResult<Person> dfsResult = dfsFinder.findPath(grafo, nAn20, nJ25);
+
+        System.out.println("\n\nOrden DFS:");
+        dfsResult.getVisitados()
+                .forEach(node -> System.out.println(node + " "));
+
+        System.out.println("\nRuta Encontrada DFS:");
+        dfsResult.getPath()
+                .forEach(node -> System.out.println(node + " "));
+    }
 }
